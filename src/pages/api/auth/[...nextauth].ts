@@ -25,12 +25,15 @@ export default NextAuth({
             query.Not(
               query.Exists(
                 query.Match(
-                  query.Index('user_by_email', query.Casefold(user.email)),
+                  query.Index('user_by_email'),
+                  query.Casefold(user.email),
                 ),
               ),
             ),
             query.Create(query.Collection('users'), { data: { email } }),
-            query.Get(query.Index('user_by_email', query.Casefold(user.email))),
+            query.Get(
+              query.Match(query.Index('user_by_email'), query.Casefold(email)),
+            ),
           ),
         );
 
