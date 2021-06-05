@@ -8,10 +8,10 @@ export function Header(): JSX.Element {
       <div className={styles.headerContent}>
         <img src="/images/logo.svg" alt="IgNews" />
         <nav>
-          <a href="#" className={styles.active}>
+          <a href="/" className={styles.active}>
             Home
           </a>
-          <a href="#">Posts</a>
+          <a href="/posts">Posts</a>
         </nav>
         <SignInButton />
       </div>
